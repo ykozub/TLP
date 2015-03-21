@@ -2381,7 +2381,7 @@ poweroff_drivebay () { # power off optical drive in drive bay
 }
 
 run_in_folder() {
-        if [[ -d $1 ]]
+        if [ -d $1 ]
         then
                 for scr in $1/*
                 do
@@ -2394,10 +2394,10 @@ run_in_folder() {
 run_custom() {
         scrPath="/usr/bin/power"
 
-        if [[ "$1" == "0" ]] 
+        if [ "$1" = "0" ] 
         then
                 run_in_folder $scrPath/ac
-        elif [[ "$1" == "1" ]]
+        elif [ "$1" == "1" ]
         then
                 run_in_folder $scrPath/bat
         fi
