@@ -2379,3 +2379,27 @@ poweroff_drivebay () { # power off optical drive in drive bay
 
     return 0
 }
+
+run_in_folder() {
+        if [[ -d $1 ]]
+        then
+                for scr in $1/*
+                do
+                        $scr
+                done
+        fi
+        return 0
+}
+
+run_custom() {
+        scrPath="/usr/bin/power"
+
+        if [[ "$1" == "0" ]] 
+        then
+                run_in_folder $scrPath/ac
+        elif [[ "$1" == "1" ]]
+        then
+                run_in_folder $scrPath/bat
+        fi
+        return 0
+}
